@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "697810608297",
+    "project_id": "capi-cazzo",
+    "storage_bucket": "capi-cazzo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697810608297:android:7c81498e4493f631c549b8",
+        "android_client_info": {
+          "package_name": "com.example.restaurant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWxWMAK4aKOd1SiDoMM_tYN1ZvsdFkyag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

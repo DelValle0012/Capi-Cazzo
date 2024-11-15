@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient">
+
+
+    <!-- Botão Pratos Principais -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginBottom="500px"
+        android:textStyle="bold"
+        android:text="Capi Cazzo"
+        android:textSize="140px"
+        android:textColor="@color/button_pressed_color"/>
+
+    <Button
+        android:id="@+id/btn_principal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pratos Principais"
+        android:textColor="@color/white"
+        android:background="@drawable/button_rounded"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btn_bebidas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bebidas"
+        android:textColor="@color/white"
+        android:background="@drawable/button_rounded"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btn_sobremesas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sobremesas"
+        android:textColor="@color/white"
+        android:background="@drawable/button_rounded"/>
+
+    <Button
+        android:id="@+id/btn_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openTelaInicio"
+        android:padding="10px"
+        android:paddingStart="10px"
+        android:paddingEnd="10px"
+        android:text="Button" />
+
+
+</LinearLayout>

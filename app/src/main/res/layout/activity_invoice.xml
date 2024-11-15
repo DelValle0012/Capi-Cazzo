@@ -1,0 +1,67 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/invoice_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nota Fiscal"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:textColor="#FFD700"/>
+
+        <TextView
+            android:id="@+id/invoice_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data: "
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#FFD700"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/invoice_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Itens: "
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                android:textColor="#FFD700"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/invoice_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: R$ 0,00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:layout_marginTop="16dp"
+            android:textColor="#FFD700"/>
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Finalizar Pagamento"
+            android:background="@drawable/button_rounded"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

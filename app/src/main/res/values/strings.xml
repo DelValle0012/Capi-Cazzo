@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">restaurant</string>
+    <string name="tela_principal_buscar" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_comanda">comanda\n</string>
+    <string name="title_dashboard">dashboard\n</string>
+    <string name="title_home">home</string>
+    <string name="title_notifications">notifications</string>
+    <string name="oi_leonardo" />
+    <string name="buscar" />
+    <string name="popular" />
+</resources>

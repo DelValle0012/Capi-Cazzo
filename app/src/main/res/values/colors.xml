@@ -1,0 +1,10 @@
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="button_color">#FF7043</color>
+    <color name="button_pressed_color">#FFD700</color>
+    <color name="fundo_logo">#0E0D0E</color>
+</resources>
