@@ -1,5 +1,13 @@
 {
-  "Pratos Principais": [
+  "Entrada Entradas":[
+    {"nome": "Bruschetta Tradizionale", "preco": 18.00},
+    {"nome": "Caprese di Bufala", "preco": 28.00},
+    {"nome": "Arancini Siciliani", "preco": 24.00},
+    {"nome": "Antipasto Misto", "preco": 32.00},
+    {"nome": "Pão", "preco": 6.00}
+],
+
+  "Principais": [
     {"nome": "Lasagna à Bolonhesa", "preco": 45.00},
     {"nome": "Fettuccine Alfredo", "preco": 38.00},
     {"nome": "Risoto de Camarão", "preco": 50.00},
@@ -21,6 +29,11 @@
     {"nome": "Zabaglione", "preco": 14.00}
   ],
   "Todos os Pratos": [
+    {"nome": "Bruschetta Tradizionale", "preco": 18.00},
+    {"nome": "Caprese di Bufala", "preco": 28.00},
+    {"nome": "Arancini Siciliani", "preco": 24.00},
+    {"nome": "Antipasto Misto", "preco": 32.00},
+    {"nome": "Pão", "preco": 6.00},
     {"nome": "Lasagna à Bolonhesa", "preco": 45.00},
     {"nome": "Fettuccine Alfredo", "preco": 38.00},
     {"nome": "Risoto de Camarão", "preco": 50.00},

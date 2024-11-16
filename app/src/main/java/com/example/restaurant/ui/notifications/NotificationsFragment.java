@@ -37,13 +37,21 @@ public class NotificationsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_notifications, container, false);
 
+        // Recuperar o argumento da categoria
+        String categoria = "Todos os Pratos"; // Valor padrão caso não seja passado
+        if (getArguments() != null) {
+            categoria = getArguments().getString("categoriaSelecionada", "Todos os Pratos");
+        }
+
+        Toast.makeText(getContext(), "Categoria selecionada: " + categoria, Toast.LENGTH_SHORT).show();
+
         // Inicializar o ListView e botões
         menuListView = rootView.findViewById(R.id.menu_list);
         btnViewOrder = rootView.findViewById(R.id.btn_view_order);
         btnFinalizeOrder = rootView.findViewById(R.id.btn_finalize_order);
 
-        // Carregar os itens do JSON
-        items = loadItemsFromJson(getContext());
+        // Carregar os itens do JSON com base na categoria
+        items = loadItemsFromJson(getContext(), categoria);
         if (items != null) {
             MenuAdapter menuAdapter = new MenuAdapter(getContext(), items);
             menuListView.setAdapter(menuAdapter);
@@ -52,53 +60,29 @@ public class NotificationsFragment extends Fragment {
         }
 
         // Configurar eventos dos botões
-        btnViewOrder.setOnClickListener(v -> {
-            // Implementar a lógica do botão Ver Pedido
-            Toast.makeText(getContext(), "Visualizar pedido clicado!", Toast.LENGTH_SHORT).show();
-        });
-
-        btnFinalizeOrder.setOnClickListener(v -> {
-            // Implementar a lógica do botão Finalizar Pedido
-            Toast.makeText(getContext(), "Pedido finalizado!", Toast.LENGTH_SHORT).show();
-        });
+        btnViewOrder.setOnClickListener(v -> Toast.makeText(getContext(), "Visualizar pedido clicado!", Toast.LENGTH_SHORT).show());
+        btnFinalizeOrder.setOnClickListener(v -> Toast.makeText(getContext(), "Pedido finalizado!", Toast.LENGTH_SHORT).show());
 
         return rootView;
     }
 
-    private ArrayList<Item> loadItemsFromJson(Context context) {
+    private ArrayList<Item> loadItemsFromJson(Context context, String categoria) {
         ArrayList<Item> itemList = new ArrayList<>();
         try {
-            // Ler o arquivo JSON
             InputStream inputStream = context.getAssets().open("produtos.json");
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);
             inputStream.close();
 
-            // Converter para string
             String json = new String(buffer, "UTF-8");
+            JSONObject jsonObject = new JSONObject(json);
 
-            // Parsear o JSON
-            JSONObject jsonObject = new JSONObject(json); // O JSON é um objeto, não um array
-
-            //if(categoria.equals = "Pratos Principais"
-//            {
-//                JSONArray pratosPrincipais = jsonObject.getJSONArray("Pratos Principais");
-//                addItemsToList(itemList, pratosPrincipais);
-//            }
-
-            // Acesse as categorias diretamente no JSON
-            JSONArray pratosPrincipais = jsonObject.getJSONArray("Pratos Principais");
-            JSONArray bebidas = jsonObject.getJSONArray("Bebidas");
-            JSONArray sobremesas = jsonObject.getJSONArray("Sobremesas");
-            JSONArray todosOsPratos = jsonObject.getJSONArray("Todos os Pratos");
-
-            // Adicionar os itens de cada categoria à lista
-            addItemsToList(itemList, pratosPrincipais);
-            addItemsToList(itemList, bebidas);
-            addItemsToList(itemList, sobremesas);
-            addItemsToList(itemList, todosOsPratos);
-
+            // Recuperar itens específicos da categoria
+            JSONArray jsonArray = jsonObject.optJSONArray(categoria);
+            if (jsonArray != null) {
+                addItemsToList(itemList, jsonArray);
+            }
         } catch (IOException | JSONException e) {
             Log.e("NotificationsFragment", "Erro ao carregar o JSON", e);
         }

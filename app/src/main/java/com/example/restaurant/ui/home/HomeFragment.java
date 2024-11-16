@@ -72,32 +72,27 @@ public class HomeFragment extends Fragment {
         recyclerViewCategoryList = binding.recyclerViewCategoryList;
         recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
 
-        // Renomeie a variável ArrayList
         ArrayList<CategoryDomain> categoryList = new ArrayList<>();
         categoryList.add(new CategoryDomain("Entradas", "cat_1"));
-        categoryList.add(new CategoryDomain("Principal", "cat_2"));
+        categoryList.add(new CategoryDomain("Principais", "cat_2"));
         categoryList.add(new CategoryDomain("Bebidas", "cat_3"));
         categoryList.add(new CategoryDomain("Sobremesas", "cat_4"));
 
         adapter = new CategoryAdaptor(categoryList, selectedCategory -> {
-            String selectedTitle = selectedCategory.getTitle();
-            // Crie o fragmento de destino
-            NotificationsFragment notificationsFragment = new NotificationsFragment();
+            String nomeCategoria = selectedCategory.getTitle();
 
             // Crie um Bundle para passar a categoria selecionada
-            Bundle bundle = new Bundle();
-            bundle.putString("selectedCategory", selectedCategory.getTitle());
+            Bundle categoria = new Bundle();
+            categoria.putString("categoriaSelecionada", nomeCategoria);
 
-            // Defina os argumentos no fragmento
-            notificationsFragment.setArguments(bundle);
-
-            // Navegue para o fragmento
+            // Navegue para o NotificationsFragment com o Bundle
             NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
-            navController.navigate(R.id.action_navigation_home_to_navigation_notifications);
+            navController.navigate(R.id.action_navigation_home_to_navigation_notifications, categoria);
         });
 
         recyclerViewCategoryList.setAdapter(adapter);
     }
+
 
 
 //    private void recyclerViewPopulares() {
