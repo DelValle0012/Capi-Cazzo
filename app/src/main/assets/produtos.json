@@ -1,0 +1,40 @@
+{
+  "Pratos Principais": [
+    {"nome": "Lasagna à Bolonhesa", "preco": 45.00},
+    {"nome": "Fettuccine Alfredo", "preco": 38.00},
+    {"nome": "Risoto de Camarão", "preco": 50.00},
+    {"nome": "Pizza Margherita", "preco": 35.00},
+    {"nome": "Gnocchi ao Molho Pesto", "preco": 42.00}
+  ],
+  "Bebidas": [
+    {"nome": "Vinho Tinto", "preco": 20.00},
+    {"nome": "Prosecco", "preco": 25.00},
+    {"nome": "Limoncello", "preco": 18.00},
+    {"nome": "Água Mineral", "preco": 5.00},
+    {"nome": "Refrigerante Italiano (Chinotto)", "preco": 7.00}
+  ],
+  "Sobremesas": [
+    {"nome": "Tiramisu", "preco": 15.00},
+    {"nome": "Panna Cotta", "preco": 12.00},
+    {"nome": "Cannoli Siciliano", "preco": 10.00},
+    {"nome": "Gelato de Pistache", "preco": 8.00},
+    {"nome": "Zabaglione", "preco": 14.00}
+  ],
+  "Todos os Pratos": [
+    {"nome": "Lasagna à Bolonhesa", "preco": 45.00},
+    {"nome": "Fettuccine Alfredo", "preco": 38.00},
+    {"nome": "Risoto de Camarão", "preco": 50.00},
+    {"nome": "Pizza Margherita", "preco": 35.00},
+    {"nome": "Gnocchi ao Molho Pesto", "preco": 42.00},
+    {"nome": "Vinho Tinto", "preco": 20.00},
+    {"nome": "Prosecco", "preco": 25.00},
+    {"nome": "Limoncello", "preco": 18.00},
+    {"nome": "Água Mineral", "preco": 5.00},
+    {"nome": "Refrigerante Italiano (Chinotto)", "preco": 7.00},
+    {"nome": "Tiramisu", "preco": 15.00},
+    {"nome": "Panna Cotta", "preco": 12.00},
+    {"nome": "Cannoli Siciliano", "preco": 10.00},
+    {"nome": "Gelato de Pistache", "preco": 8.00},
+    {"nome": "Zabaglione", "preco": 14.00}
+  ]
+}

@@ -20,10 +20,15 @@ import java.util.ArrayList;
 public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
 
     ArrayList<CategoryDomain>categoryDomains;
+    private OnItemClickListener listener;
 
-    public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains)
-    {
+    public interface OnItemClickListener {
+        void onItemClick(CategoryDomain category);
+    }
+
+    public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains, OnItemClickListener listener) {
         this.categoryDomains = categoryDomains;
+        this.listener = listener;
     }
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,6 +39,8 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.categoryName.setText(categoryDomains.get(position).getTitle());
+        // Defina outras propriedades aqui, como imagem usando o pic
+        holder.itemView.setOnClickListener(v -> listener.onItemClick(categoryDomains.get(position)));
         String picUrl = "";
         switch (position)
         {
@@ -64,6 +71,8 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
                 .load(drawableResourceId)
                 .into(holder.categoryPic);
 
+
+
     }
 
     @Override
@@ -82,5 +91,10 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
             categoryPic = itemView.findViewById(R.id.fotoPopular);
             mainLayout = itemView.findViewById(R.id.layoutPrincipal);
         }
+    }
+
+    // Interface para clique em categoria
+    public interface OnCategoryClickListener {
+        void onCategoryClick(CategoryDomain category);
     }
 }
