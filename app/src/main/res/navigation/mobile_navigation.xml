@@ -10,6 +10,9 @@
         android:name="com.example.restaurant.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
+    <action
+        android:id="@+id/action_navigation_home_to_navigation_dashboard"
+        app:destination="@id/navigation_dashboard" />
 
     <action
         android:id="@+id/action_navigation_home_to_navigation_notifications"
@@ -21,12 +24,12 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.restaurant.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="Pratos"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.restaurant.ui.notifications.NotificationsFragment"
-        android:label="@string/title_comanda"
+        android:label="Carrinho"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

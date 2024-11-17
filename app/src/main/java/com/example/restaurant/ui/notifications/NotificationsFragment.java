@@ -1,6 +1,7 @@
 package com.example.restaurant.ui.notifications;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,9 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.restaurant.CarrinhoActivity;
 import com.example.restaurant.Item;
 import com.example.restaurant.MenuAdapter;
 import com.example.restaurant.R;
+import com.example.restaurant.RecuperaContaActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,8 +63,8 @@ public class NotificationsFragment extends Fragment {
         }
 
         // Configurar eventos dos botões
-        btnViewOrder.setOnClickListener(v -> Toast.makeText(getContext(), "Visualizar pedido clicado!", Toast.LENGTH_SHORT).show());
-        btnFinalizeOrder.setOnClickListener(v -> Toast.makeText(getContext(), "Pedido finalizado!", Toast.LENGTH_SHORT).show());
+        //btnFinalizeOrder.setOnClickListener(v -> startActivity(new Intent(this, CarrinhoActivity.class)));
+
 
         return rootView;
     }
@@ -96,8 +99,9 @@ public class NotificationsFragment extends Fragment {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             String name = jsonObject.getString("nome");
             double price = jsonObject.getDouble("preco");
-            itemList.add(new Item(name, price));
+            String photo = jsonObject.optString("foto", "produtos_default"); // Valor padrão
         }
     }
+
 
 }

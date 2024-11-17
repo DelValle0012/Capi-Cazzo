@@ -1,67 +1,52 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@drawable/background_gradient">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/category_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="153dp"
+        android:text="Categoria"
+        android:textColor="#FFD700"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerViewMenu"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:clipToPadding="true"
+        android:paddingLeft="9dp"
+        android:paddingRight="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_text_view"
+        app:layout_constraintVertical_bias="0.147" />
+
+    <Button
+        android:id="@+id/btn_finalize_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_rounded"
+        android:elevation="8dp"
+        android:text="Finalizar Pedido"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/RecyclerViewMenu"
+        app:layout_constraintStart_toStartOf="@+id/RecyclerViewMenu"
+        app:layout_constraintTop_toBottomOf="@+id/RecyclerViewMenu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/invoice_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nota Fiscal"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:textColor="#FFD700"/>
-
-        <TextView
-            android:id="@+id/invoice_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Data: "
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp"
-            android:textColor="#FFD700"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/invoice_items"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Itens: "
-                android:textSize="16sp"
-                android:layout_marginBottom="16dp"
-                android:textColor="#FFD700"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/invoice_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total: R$ 0,00"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_gravity="end"
-            android:layout_marginTop="16dp"
-            android:textColor="#FFD700"/>
-
-        <Button
-            android:id="@+id/btn_done"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Finalizar Pagamento"
-            android:background="@drawable/button_rounded"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="16dp"/>
-    </LinearLayout>
-</ScrollView>

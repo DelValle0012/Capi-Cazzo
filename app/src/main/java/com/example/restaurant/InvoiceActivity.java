@@ -48,7 +48,7 @@ public class InvoiceActivity extends AppCompatActivity {
 
         // Verificar os itens do pedido
         for (OrderItem orderItem : order.getOrderItems()) {
-            Log.d("InvoiceActivity", "Item no pedido: " + orderItem.getItem().getName());
+            Log.d("InvoiceActivity", "Item no pedido: " + orderItem.getItem().getNome());
         }
 
         // Exibir os itens do pedido na "nota fiscal"
@@ -60,11 +60,11 @@ public class InvoiceActivity extends AppCompatActivity {
         for (OrderItem orderItem : items) {
             itemsDetails.append(orderItem.getQuantity())
                     .append("x ")
-                    .append(orderItem.getItem().getName())
+                    .append(orderItem.getItem().getNome())
                     .append(" - R$ ")
-                    .append(String.format(Locale.getDefault(), "%.2f", orderItem.getItem().getPrice() * orderItem.getQuantity()))
+                    .append(String.format(Locale.getDefault(), "%.2f", orderItem.getItem().getPreco_unit() * orderItem.getQuantity()))
                     .append("\n");
-            totalPrice += orderItem.getItem().getPrice() * orderItem.getQuantity();
+            totalPrice += orderItem.getItem().getPreco_unit() * orderItem.getQuantity();
         }
 
         // Exibir os detalhes dos itens e o preço total

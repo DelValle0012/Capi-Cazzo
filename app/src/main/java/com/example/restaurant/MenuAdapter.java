@@ -41,8 +41,8 @@ public class MenuAdapter extends ArrayAdapter<Item> {
         Button increaseButton = convertView.findViewById(R.id.btn_increase);
         Button decreaseButton = convertView.findViewById(R.id.btn_decrease);
 
-        itemName.setText(item.getName());
-        itemPrice.setText("R$ " + String.format("%.2f", item.getPrice()));
+        itemName.setText(item.getNome());
+        itemPrice.setText("R$ " + String.format("%.2f", item.getPreco_unit()));
 
         // Exibe a quantidade atual para o item atual
         itemQuantity.setText(String.valueOf(itemQuantities.get(position)));
@@ -96,7 +96,7 @@ public class MenuAdapter extends ArrayAdapter<Item> {
                     // Adiciona o item ao pedido se a quantidade for maior que 0
                     if (newQuantity > 0) {
                         Order.getInstance().addItem(item, newQuantity);
-                        Toast.makeText(MenuAdapter.this.getContext(), newQuantity + "x " + item.getName() + " adicionados ao pedido.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MenuAdapter.this.getContext(), newQuantity + "x " + item.getNome() + " adicionados ao pedido.", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(MenuAdapter.this.getContext(), "Quantidade inválida. Por favor, insira um valor maior que 0.", Toast.LENGTH_SHORT).show();
                     }

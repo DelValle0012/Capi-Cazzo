@@ -26,9 +26,9 @@ public class OrderAdapter extends ArrayAdapter<OrderItem> {
         TextView itemQuantity = convertView.findViewById(R.id.order_item_quantity);
         TextView itemTotalPrice = convertView.findViewById(R.id.order_item_total_price);
 
-        itemName.setText(orderItem.getItem().getName());
+        itemName.setText(orderItem.getItem().getNome());
         itemQuantity.setText("Quantidade: " + orderItem.getQuantity());
-        itemTotalPrice.setText("R$ " + String.format("%.2f", orderItem.getItem().getPrice() * orderItem.getQuantity()));
+        itemTotalPrice.setText("R$ " + String.format("%.2f", orderItem.getItem().getPreco_unit() * orderItem.getQuantity()));
 
         return convertView;
     }

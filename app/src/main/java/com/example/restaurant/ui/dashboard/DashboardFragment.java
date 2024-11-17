@@ -1,5 +1,6 @@
 package com.example.restaurant.ui.dashboard;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,93 +9,133 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.restaurant.Adapter.ProdutoAdaptor;
 import com.example.restaurant.Order;
 import com.example.restaurant.OrderItem;
 import com.example.restaurant.R;
-import com.example.restaurant.databinding.FragmentDashboardBinding;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.restaurant.CarrinhoActivity;
+import com.example.restaurant.Item;
+import com.example.restaurant.MenuAdapter;
+import com.example.restaurant.R;
+import com.example.restaurant.RecuperaContaActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 
 public class DashboardFragment extends Fragment {
 
-    public class InvoiceActivity extends AppCompatActivity {
+    private RecyclerView RecyclerViewMenu;
+    private ArrayList<Item> items;
+    private Button btnViewOrder, btnFinalizeOrder;
 
-        private TextView invoiceTitle, invoiceDate, invoiceItems, invoiceTotal;
-        private Button btnDone;
+    @SuppressLint("MissingInflatedId")
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_invoice);
+        // Recuperar o argumento da categoria
+        String categoria = "Todos os Pratos"; // Valor padrão caso não seja passado
+        if (getArguments() != null) {
+            categoria = getArguments().getString("categoriaSelecionada", "Todos os Pratos");
+        }
 
-            // Inicializando as Views
-            invoiceTitle = findViewById(R.id.invoice_title);
-            invoiceDate = findViewById(R.id.invoice_date);
-            invoiceItems = findViewById(R.id.invoice_items);
-            invoiceTotal = findViewById(R.id.invoice_total);
-            btnDone = findViewById(R.id.btn_done);
+        Toast.makeText(getContext(), "Categoria selecionada: " + categoria, Toast.LENGTH_SHORT).show();
 
-            // Definir a data atual
-            String currentDate = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(new Date());
-            invoiceDate.setText("Data: " + currentDate);
+        // Inicializar o ListView e botões
+        RecyclerViewMenu = rootView.findViewById(R.id.RecyclerViewMenu);
+        btnFinalizeOrder = rootView.findViewById(R.id.btn_finalize_order);
 
-            // Receber o pedido finalizado
-            Order order = Order.getInstance();
+        RecyclerViewMenu.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            if (order == null || order.getOrderItems() == null) {
-                Log.e("InvoiceActivity", "Pedido está vazio ou nulo");
-                Toast.makeText(this, "Erro: Pedido vazio.", Toast.LENGTH_SHORT).show();
-                return;
+        // Carregar os itens do JSON com base na categoria
+        items = loadItemsFromJson(getContext(), categoria);
+        if (items != null) {
+            ProdutoAdaptor menuAdapter = new ProdutoAdaptor(getContext(), items);
+            RecyclerViewMenu.setAdapter(menuAdapter);
+        } else {
+            Toast.makeText(getContext(), "Erro ao carregar itens do menu!", Toast.LENGTH_SHORT).show();
+        }
+
+        // Configurar eventos dos botões
+        btnFinalizeOrder.setOnClickListener(v -> {
+            // Criar uma Intent para iniciar a Activity
+            Intent intent = new Intent(getActivity(), CarrinhoActivity.class);
+            startActivity(intent); // Iniciar a Activity
+        });
+
+
+        return rootView;
+    }
+
+    private ArrayList<Item> loadItemsFromJson(Context context, String categoria) {
+        ArrayList<Item> itemList = new ArrayList<>();
+        try {
+            InputStream inputStream = context.getAssets().open("produtos.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONObject jsonObject = new JSONObject(json);
+
+            // Recuperar itens específicos da categoria
+            JSONArray jsonArray = jsonObject.optJSONArray(categoria);
+            if (jsonArray != null) {
+                addItemsToList(itemList, jsonArray);
             }
+        } catch (IOException | JSONException e) {
+            Log.e("NotificationsFragment", "Erro ao carregar o JSON", e);
+        }
 
+        return itemList;
+    }
 
-            // Verificar os itens do pedido
-            for (OrderItem orderItem : order.getOrderItems()) {
-                Log.d("InvoiceActivity", "Item no pedido: " + orderItem.getItem().getName());
-            }
+    // Método auxiliar para adicionar itens a partir de um JSONArray
+    private void addItemsToList(ArrayList<Item> itemList, JSONArray jsonArray) throws JSONException {
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String name = jsonObject.getString("nome");
+            double price = jsonObject.getDouble("preco");
+            String photo = jsonObject.optString("foto", "produtos_default"); // Valor padrão
+            int quantidade = 1; // Defina uma quantidade padrão, ou recupere do JSON se disponível
 
-            // Exibir os itens do pedido na "nota fiscal"
-            StringBuilder itemsDetails = new StringBuilder();
-            double totalPrice = 0.0;
-
-            // Iterar sobre os itens do pedido
-            List<OrderItem> items = order.getOrderItems();
-            for (OrderItem orderItem : items) {
-                itemsDetails.append(orderItem.getQuantity())
-                        .append("x ")
-                        .append(orderItem.getItem().getName())
-                        .append(" - R$ ")
-                        .append(String.format(Locale.getDefault(), "%.2f", orderItem.getItem().getPrice() * orderItem.getQuantity()))
-                        .append("\n");
-                totalPrice += orderItem.getItem().getPrice() * orderItem.getQuantity();
-            }
-
-            // Exibir os detalhes dos itens e o preço total
-            invoiceItems.setText(itemsDetails.toString());
-            invoiceTotal.setText("Total: R$ " + String.format(Locale.getDefault(), "%.2f", totalPrice));
-
-            // Limpar o pedido e concluir a "nota fiscal"
-            btnDone.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Certifique-se de que a ordem foi limpa corretamente
-                    if (order != null) {
-                        order.clearOrder();
-                    }
-                    finish(); // Fecha a tela e retorna ao menu principal ou finaliza a atividade
-                }
-            });
+            // Criando o objeto Item com os quatro parâmetros
+            Item item = new Item(name, price, photo, quantidade);
+            itemList.add(item);
         }
     }
+
+
 }
