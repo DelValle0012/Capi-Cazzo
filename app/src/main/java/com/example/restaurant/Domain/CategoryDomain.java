@@ -1,14 +1,16 @@
 package com.example.restaurant.Domain;
 
-import com.example.restaurant.databinding.ActivityLoginBinding;
-import com.example.restaurant.databinding.FragmentHomeBinding;
-
-public class CategoryDomain  {
-    private FragmentHomeBinding binding;
-
+public class CategoryDomain {
     private String title;
     private String pic;
 
+    // Construtor
+    public CategoryDomain(String title, String pic) {
+        this.title = title;
+        this.pic = pic;
+    }
+
+    // Getters e Setters
     public String getTitle() {
         return title;
     }
@@ -22,12 +24,6 @@ public class CategoryDomain  {
     }
 
     public void setPic(String pic) {
-        this.pic = pic;
-    }
-
-    public CategoryDomain(String tittle, String pic)
-    {
-        this.title = tittle;
         this.pic = pic;
     }
 }

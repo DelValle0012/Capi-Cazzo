@@ -25,7 +25,7 @@ public class Order implements Parcelable {
     public void addItem(Item item) {
         boolean itemExists = false;
         for (OrderItem orderItem : orderItems) {
-            if (orderItem.getItem().getName().equals(item.getName())) {
+            if (orderItem.getItem().getNome().equals(item.getNome())) {
                 orderItem.incrementQuantity(); // Incrementa a quantidade
                 itemExists = true;
                 break;
@@ -45,7 +45,7 @@ public class Order implements Parcelable {
     public double getTotalPrice() {
         double total = 0;
         for (OrderItem item : orderItems) {
-            total += item.getQuantity() * item.getItem().getPrice();
+            total += item.getQuantity() * item.getItem().getPreco_unit();
         }
         return total;
     }

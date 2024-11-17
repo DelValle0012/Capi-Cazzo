@@ -1,99 +1,107 @@
 package com.example.restaurant.ui.notifications;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.restaurant.InvoiceActivity;
+import com.example.restaurant.CarrinhoActivity;
 import com.example.restaurant.Item;
 import com.example.restaurant.MenuAdapter;
-import com.example.restaurant.Order;
-import com.example.restaurant.OrderActivity;
 import com.example.restaurant.R;
+import com.example.restaurant.RecuperaContaActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class NotificationsFragment extends Fragment {
 
-    public class MenuActivity extends AppCompatActivity {
+    private ListView menuListView;
+    private ArrayList<Item> items;
+    private Button btnViewOrder, btnFinalizeOrder;
 
-        private Button btnViewOrder, btnFinalizeOrder;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_notifications, container, false);
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_menu);
+        // Recuperar o argumento da categoria
+        String categoria = "Todos os Pratos"; // Valor padrão caso não seja passado
+        if (getArguments() != null) {
+            categoria = getArguments().getString("categoriaSelecionada", "Todos os Pratos");
+        }
 
+        Toast.makeText(getContext(), "Categoria selecionada: " + categoria, Toast.LENGTH_SHORT).show();
 
-            // Receber a categoria selecionada
-            String category = getIntent().getStringExtra("category");
+        // Inicializar o ListView e botões
+        menuListView = rootView.findViewById(R.id.menu_list);
+        btnViewOrder = rootView.findViewById(R.id.btn_view_order);
+        btnFinalizeOrder = rootView.findViewById(R.id.btn_finalize_order);
 
-            // Atualizar o título da categoria
-            TextView categoryTextView = findViewById(R.id.category_text_view);
-            categoryTextView.setText(category);
-
-            // Inicializar os botões
-            btnViewOrder = findViewById(R.id.btn_view_order);
-            btnFinalizeOrder = findViewById(R.id.btn_finalize_order);
-
-            // Carregar os itens corretos com base na categoria
-            ArrayList<Item> items = new ArrayList<>();
-
-            // Verifique se a string da categoria está sendo passada corretamente
-            if (category.equals("Pratos Principais")) {
-                items.add(new Item("Carne Assada", 30.00));
-                items.add(new Item("Peixe Grelhado", 40.00));
-                items.add(new Item("Massa ao Sugo", 20.00));
-                // Adicione outros itens de Pratos Principais
-            } else if (category.equals("Bebidas")) {
-                items.add(new Item("Refrigerante", 5.00));
-                items.add(new Item("Água com Gás", 3.50));
-                items.add(new Item("Chá Gelado", 4.00));
-                // Adicione outras bebidas
-            } else if (category.equals("Sobremesas")) {
-                items.add(new Item("Torta de Limão", 12.00));
-                items.add(new Item("Pudim de Leite", 10.00));
-                items.add(new Item("Brownie", 15.00));
-                // Adicione outras sobremesas
-            }
-
-            // Configurar o adaptador para mostrar os itens
-            ListView menuListView = findViewById(R.id.menu_list);
-            MenuAdapter menuAdapter = new MenuAdapter(this, items);
+        // Carregar os itens do JSON com base na categoria
+        items = loadItemsFromJson(getContext(), categoria);
+        if (items != null) {
+            MenuAdapter menuAdapter = new MenuAdapter(getContext(), items);
             menuListView.setAdapter(menuAdapter);
+        } else {
+            Toast.makeText(getContext(), "Erro ao carregar itens do menu!", Toast.LENGTH_SHORT).show();
+        }
 
-            // Adicione logs para verificar se os botões estão funcionando corretamente
-            btnViewOrder.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Order order = Order.getInstance();  // Certifique-se de pegar o pedido corretamente
-                    if (order != null && order.getItems() != null && !order.getItems().isEmpty()) {
-                        Intent intent = new Intent(MenuActivity.this, OrderActivity.class);  // Mude para OrderActivity
-                        startActivity(intent);  // Inicia a OrderActivity para exibir os pedidos
-                    } else {
-                        Toast.makeText(MenuActivity.this, "O pedido está vazio!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-            btnFinalizeOrder.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d("MenuActivity", "Botão Finalizar Pedido Clicado");
-                    Intent intent = new Intent(MenuActivity.this, InvoiceActivity.class);
-                    startActivity(intent);
-                }
-            });
+        // Configurar eventos dos botões
+        //btnFinalizeOrder.setOnClickListener(v -> startActivity(new Intent(this, CarrinhoActivity.class)));
 
 
+        return rootView;
+    }
+
+    private ArrayList<Item> loadItemsFromJson(Context context, String categoria) {
+        ArrayList<Item> itemList = new ArrayList<>();
+        try {
+            InputStream inputStream = context.getAssets().open("produtos.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONObject jsonObject = new JSONObject(json);
+
+            // Recuperar itens específicos da categoria
+            JSONArray jsonArray = jsonObject.optJSONArray(categoria);
+            if (jsonArray != null) {
+                addItemsToList(itemList, jsonArray);
+            }
+        } catch (IOException | JSONException e) {
+            Log.e("NotificationsFragment", "Erro ao carregar o JSON", e);
+        }
+
+        return itemList;
+    }
+
+    // Método auxiliar para adicionar itens a partir de um JSONArray
+    private void addItemsToList(ArrayList<Item> itemList, JSONArray jsonArray) throws JSONException {
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String name = jsonObject.getString("nome");
+            double price = jsonObject.getDouble("preco");
+            String photo = jsonObject.optString("foto", "produtos_default"); // Valor padrão
         }
     }
+
+
 }

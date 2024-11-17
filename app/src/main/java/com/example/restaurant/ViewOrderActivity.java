@@ -91,7 +91,7 @@ public class ViewOrderActivity extends AppCompatActivity {
     private void updateTotalPrice() {
         double totalPrice = 0.0;
         for (OrderItem item : currentOrderItems) {
-            totalPrice += item.getItem().getPrice() * item.getQuantity();
+            totalPrice += item.getItem().getPreco_unit() * item.getQuantity();
         }
         totalPriceTextView.setText("Total: R$ " + String.format("%.2f", totalPrice));  // Atualiza o valor total
     }

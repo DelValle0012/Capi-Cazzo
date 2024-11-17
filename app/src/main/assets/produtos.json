@@ -1,0 +1,52 @@
+{
+  "Entrada Entradas": [
+    {"nome": "Bruschetta Tradizionale", "preco": 18.00, "foto": "produtos_default"},
+    {"nome": "Caprese di Bufala", "preco": 28.00, "foto": "produtos_default"},
+    {"nome": "Arancini Siciliani", "preco": 24.00, "foto": "produtos_default"},
+    {"nome": "Antipasto Misto", "preco": 32.00, "foto": "produtos_default"},
+    {"nome": "Pão", "preco": 6.00, "foto": "produtos_default"}
+  ],
+  "Principais": [
+    {"nome": "Lasagna à Bolonhesa", "preco": 45.00, "foto": "produtos_default"},
+    {"nome": "Fettuccine Alfredo", "preco": 38.00, "foto": "produtos_default"},
+    {"nome": "Risoto de Camarão", "preco": 50.00, "foto": "produtos_default"},
+    {"nome": "Pizza Margherita", "preco": 35.00, "foto": "produtos_default"},
+    {"nome": "Gnocchi ao Molho Pesto", "preco": 42.00, "foto": "produtos_default"}
+  ],
+  "Bebidas": [
+    {"nome": "Vinho Tinto", "preco": 20.00, "foto": "produtos_default"},
+    {"nome": "Prosecco", "preco": 25.00, "foto": "produtos_default"},
+    {"nome": "Limoncello", "preco": 18.00, "foto": "produtos_default"},
+    {"nome": "Água Mineral", "preco": 5.00, "foto": "produtos_default"},
+    {"nome": "Refrigerante Italiano (Chinotto)", "preco": 7.00, "foto": "produtos_default"}
+  ],
+  "Sobremesas": [
+    {"nome": "Tiramisu", "preco": 15.00, "foto": "produtos_default"},
+    {"nome": "Panna Cotta", "preco": 12.00, "foto": "produtos_default"},
+    {"nome": "Cannoli Siciliano", "preco": 10.00, "foto": "produtos_default"},
+    {"nome": "Gelato de Pistache", "preco": 8.00, "foto": "produtos_default"},
+    {"nome": "Zabaglione", "preco": 14.00, "foto": "produtos_default"}
+  ],
+  "Todos os Pratos": [
+    {"nome": "Bruschetta Tradizionale", "preco": 18.00, "foto": "produtos_default"},
+    {"nome": "Caprese di Bufala", "preco": 28.00, "foto": "produtos_default"},
+    {"nome": "Arancini Siciliani", "preco": 24.00, "foto": "produtos_default"},
+    {"nome": "Antipasto Misto", "preco": 32.00, "foto": "produtos_default"},
+    {"nome": "Pão", "preco": 6.00, "foto": "produtos_default"},
+    {"nome": "Lasagna à Bolonhesa", "preco": 45.00, "foto": "produtos_default"},
+    {"nome": "Fettuccine Alfredo", "preco": 38.00, "foto": "produtos_default"},
+    {"nome": "Risoto de Camarão", "preco": 50.00, "foto": "produtos_default"},
+    {"nome": "Pizza Margherita", "preco": 35.00, "foto": "produtos_default"},
+    {"nome": "Gnocchi ao Molho Pesto", "preco": 42.00, "foto": "produtos_default"},
+    {"nome": "Vinho Tinto", "preco": 20.00, "foto": "produtos_default"},
+    {"nome": "Prosecco", "preco": 25.00, "foto": "produtos_default"},
+    {"nome": "Limoncello", "preco": 18.00, "foto": "produtos_default"},
+    {"nome": "Água Mineral", "preco": 5.00, "foto": "produtos_default"},
+    {"nome": "Refrigerante Italiano (Chinotto)", "preco": 7.00, "foto": "produtos_default"},
+    {"nome": "Tiramisu", "preco": 15.00, "foto": "produtos_default"},
+    {"nome": "Panna Cotta", "preco": 12.00, "foto": "produtos_default"},
+    {"nome": "Cannoli Siciliano", "preco": 10.00, "foto": "produtos_default"},
+    {"nome": "Gelato de Pistache", "preco": 8.00, "foto": "produtos_default"},
+    {"nome": "Zabaglione", "preco": 14.00, "foto": "produtos_default"}
+  ]
+}
