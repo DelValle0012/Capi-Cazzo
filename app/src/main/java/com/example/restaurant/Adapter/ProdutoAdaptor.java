@@ -7,13 +7,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.restaurant.Domain.CategoryDomain;
 import com.example.restaurant.R;
 import com.example.restaurant.Item;
 
@@ -22,9 +19,11 @@ import java.util.ArrayList;
 public class ProdutoAdaptor extends RecyclerView.Adapter<ProdutoAdaptor.ProdutoViewHolder> {
 
     ArrayList<Item> item;
+    private OnAddToCartListener addCarrinhoListener;
 
-    public ProdutoAdaptor(Context context, ArrayList<Item> item) {
+    public ProdutoAdaptor(Context context, ArrayList<Item> item, OnAddToCartListener addCarrinhoListener) {
         this.item = item;
+        this.addCarrinhoListener = addCarrinhoListener;
     }
 
     @Override
@@ -66,10 +65,11 @@ public class ProdutoAdaptor extends RecyclerView.Adapter<ProdutoAdaptor.ProdutoV
             preco_unit = itemView.findViewById(R.id.item_price);
             preco_total = itemView.findViewById(R.id.preco_total);
             foto = itemView.findViewById(R.id.pic);
-            btnAdd = itemView.findViewById(R.id.btnAdd);
+            btnAdd = itemView.findViewById(R.id.btnRemove);
             btnAumenta = itemView.findViewById(R.id.btn_aumenta);
             btnDiminui = itemView.findViewById(R.id.btn_diminui);
             tvQuant = itemView.findViewById(R.id.TV_quant);
+
 
             // Botão de aumentar quantidade
             btnAumenta.setOnClickListener(new View.OnClickListener() {
@@ -107,12 +107,19 @@ public class ProdutoAdaptor extends RecyclerView.Adapter<ProdutoAdaptor.ProdutoV
                 }
             });
 
+
+
             btnAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    // Pega o item atual e chama o listener
+                    addCarrinhoListener.onAddToCart(item.get(getAdapterPosition()));
                 }
             });
         }
+    }
+
+    public interface OnAddToCartListener {
+        void onAddToCart(Item item);
     }
 }

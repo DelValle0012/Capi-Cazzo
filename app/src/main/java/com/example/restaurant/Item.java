@@ -15,6 +15,7 @@ public class Item implements Parcelable {
         this.preco_unit = preco;
         this.foto = foto;
         this.quantidade = quantidade;
+        this.preco_total = preco * quantidade;
     }
 
     public void setQuantidade(int quantidade) {
@@ -37,15 +38,30 @@ public class Item implements Parcelable {
         return foto;
     }
 
+    public double getPreco_total() {
+        return preco_total;
+    }
+
+    public void setPreco_total(double preco_total) {
+        this.preco_total = preco_total;
+    }
+
+    // Construtor para Parcelable
     protected Item(Parcel in) {
         nome = in.readString();
         preco_unit = in.readDouble();
+        preco_total = in.readDouble();
+        foto = in.readString();
+        quantidade = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nome);
         dest.writeDouble(preco_unit);
+        dest.writeDouble(preco_total);
+        dest.writeString(foto);
+        dest.writeInt(quantidade);
     }
 
     @Override
@@ -64,12 +80,4 @@ public class Item implements Parcelable {
             return new Item[size];
         }
     };
-
-    public double getPreco_total() {
-        return preco_total;
-    }
-
-    public void setPreco_total(double preco_total) {
-        this.preco_total = preco_total;
-    }
 }
