@@ -1,11 +1,9 @@
 
 # Capi Cazzo
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Capi-Cazzo/README?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/Capi-Cazzo/README-template?style=for-the-badge)
+
 
 <img src="imagens/logo.png" alt="Logo Capi Cazzo">
 
@@ -60,15 +58,14 @@ Selecione a quantidade de produtos e adicione ao carrinho, após selecionar os p
 -VALE50(50% de desconto)
 
 # Preview:
-<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/logo.png" alt="Splash Screen" width="98" height="200" /> 
-<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaLoginWhite.png" alt="Tela de Login(Claro)" width="100" height="200" /> 
-<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaLoginDark.png" alt="Tela de Login(Escuro)" width="100" height="200" /> 
-<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/TelaPrincipalWhite.png" alt="Tela Inicio(Claro)" width="100" height="200" /> 
-<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/TelaPrincipalDark.png" alt="Tela de Inicio(Escuro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/logo.png" alt="Splash Screen" width="98" height="200" /> <img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaLoginWhite.png.jpg" alt="Tela de Login(Claro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaLoginDark.png.jpg" alt="Tela de Login(Escuro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/TelaPrincipalWhite.jpg" alt="Tela Inicio(Claro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaPrincipalDark.jpg" alt="Tela de Inicio(Escuro)" width="100" height="200" /> 
 <img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/produtosWhite.jpg" alt="Tela dos Produtos(Claro)" width="100" height="200" /> 
 <img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/produtosDark.jpg" alt="Tela dos Produtos(Escuro)" width="100" height="200" /> 
-<img src="https://raw.githubusercontent.com/imShakil/BloodBank/master/CarrinhoWhite.png" alt="Tela de Carrinho(Claro)" width="100" height="200" />
-<img src="https://raw.githubusercontent.com/imShakil/BloodBank/master/CarrinhoDark.png" alt="Tela de Carrinho(Escuro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/CarrinhoWhite.jpg" alt="Tela de Carrinho(Claro)" width="100" height="200" />
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/CarrinhoDark.jpg" alt="Tela de Carrinho(Escuro)" width="100" height="200" /> 
 
 ## 📝 Licença
 
