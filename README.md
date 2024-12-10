@@ -59,6 +59,17 @@ Selecione a quantidade de produtos e adicione ao carrinho, após selecionar os p
 -VALE20(20% de desconto)
 -VALE50(50% de desconto)
 
+# Preview:
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/logo.png" alt="Splash Screen" width="98" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaLoginWhite.png" alt="Tela de Login(Claro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaLoginDark.png" alt="Tela de Login(Escuro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/TelaPrincipalWhite.png" alt="Tela Inicio(Claro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/TelaPrincipalDark.png" alt="Tela de Inicio(Escuro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/produtosWhite.jpg" alt="Tela dos Produtos(Claro)" width="100" height="200" /> 
+<img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/produtosDark.jpg" alt="Tela dos Produtos(Escuro)" width="100" height="200" /> 
+<img src="https://raw.githubusercontent.com/imShakil/BloodBank/master/CarrinhoWhite.png" alt="Tela de Carrinho(Claro)" width="100" height="200" />
+<img src="https://raw.githubusercontent.com/imShakil/BloodBank/master/CarrinhoDark.png" alt="Tela de Carrinho(Escuro)" width="100" height="200" /> 
+
 ## 📝 Licença
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
