@@ -7,7 +7,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-<img src="logo.png" alt="Logo Capi Cazzo">
+<img src="imagens/logo.png" alt="Logo Capi Cazzo">
 
 > Um aplicativo de restaurante com uma tela de login, principal, uma de produtos, e uma de carrinho. Os produtos são exibidos de acordo com um arquivo local json.
 Este projeto foi para uma matéria do curso técnico, portanto, uma finalização dele não é certeza.
