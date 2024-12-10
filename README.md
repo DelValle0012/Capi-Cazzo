@@ -1,14 +1,16 @@
 
 # Capi Cazzo
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Capi-Cazzo/README?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/Capi-Cazzo/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/DelValle0012/Capi-Cazzo?style=for-the-badge)  
+![GitHub language count](https://img.shields.io/github/languages/count/DelValle0012/Capi-Cazzo?style=for-the-badge)  
 
 
-<img src="imagens/logo.png" alt="Logo Capi Cazzo">
+<div align="center">
+  <img src="imagens/logo.png" alt="Logo Capi Cazzo">
+</div>
 
-> Um aplicativo de restaurante com uma tela de login, principal, uma de produtos, e uma de carrinho. Os produtos são exibidos de acordo com um arquivo local json.
-Este projeto foi para uma matéria do curso técnico, portanto, uma finalização dele não é certeza.
+
+> Este projeto consiste em um aplicativo para restaurante, que inclui as seguintes telas: login, tela principal, catálogo de produtos e carrinho. Os produtos são carregados dinamicamente a partir de um arquivo local no formato JSON. O desenvolvimento foi realizado como parte de uma atividade acadêmica em um curso técnico, e, por isso, a conclusão completa do projeto não é garantida.
 
 ### Ajustes e melhorias
 
@@ -20,42 +22,72 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Fazer uma tela para o produto específico
 - [ ] Correção de Bugs e Cores
 
+## 🛠️ Especificações do Ambiente de Desenvolvimento
+
+- **Android Studio**: Koala Feature Drop | 2024.1.2  
+  - **Build**: #AI-241.18034.62.2412.12266719, built on August 22, 2024  
+  - **Runtime Version**: 17.0.11+0--11852314 amd64  
+  - **VM**: OpenJDK 64-Bit Server VM by JetBrains s.r.o.  
+- **Sistema Operacional**: Windows 11  
+- **GC**: G1 Young Generation, G1 Old Generation  
+- **Memória**: 2048 MB  
+- **Cores do Processador**: 12  
+- **Plugins Instalados**:  
+  - One Dark Theme (com.markskelton.one-dark-theme, v5.12.0)  
+  - JavaFX Plugin (com.intellij.javafx, v1.0.4)  
+  - Rainbow Brackets (com.github.setial, v4.1.2)  
+- **Configuração Experimental**: `ide.experimental.ui=true`  
+
 ## 💻 Pré-requisitos
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+Antes de começar, verifique se você atendeu aos seguintes requisitos:  
 
-- Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-- Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-- Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+- Você instalou a versão mais recente do **Android Studio Koala Feature Drop | 2024.1.2**.  
+- Você está utilizando uma máquina com **Windows 11** (o suporte para outros sistemas operacionais não foi testado).  
+- Você leu a [documentação oficial do Android Studio](https://developer.android.com/studio).  
 
-## 🚀 Instalando Capi Cazzo
+## 🚀 Como executar o projeto
 
-Para instalar o Capi Cazzo, siga estas etapas:
+1. Clone este repositório em sua máquina:  
+   ```bash
+   git clone <URL_DO_REPOSITÓRIO>
 
-Windows:
+## 🚀 Instalando Capi Cazzo  
 
-```
-Abra o projeto com o Android Studio, assim que terminar de carregar, execute e compile o projeto com o celular conectado via USB ou o Emulador habilitado e configurado.
-```
+Siga as etapas abaixo para instalar o **Capi Cazzo** no seu dispositivo:  
 
-Android:
+### Windows  
+1. Abra o projeto no **Android Studio**.  
+2. Aguarde o carregamento completo do projeto.  
+3. Certifique-se de que um dispositivo Android está conectado via USB ou que um emulador Android está habilitado e configurado corretamente.  
+4. Clique no botão **Run** ou pressione `Shift + F10` para compilar e executar o aplicativo.  
 
-```
-Instale o APK em seu dispositivo
-```
+### Android  
+1. Baixe o arquivo APK para o seu dispositivo.  
+2. No dispositivo, habilite a instalação de aplicativos de fontes desconhecidas em **Configurações > Segurança** (caso ainda não esteja habilitado).  
+3. Localize o APK no gerenciador de arquivos do dispositivo.  
+4. Toque no arquivo APK e siga as instruções para concluir a instalação.  
 
-## ☕ Usando Capi Cazzo
 
-Para usar Capi Cazzo, siga estas etapas:
+## ☕ Usando Capi Cazzo  
 
-```
-<exemplo_de_uso>
-```
+Para usar o **Capi Cazzo**, siga estas etapas:  
 
-Selecione a quantidade de produtos e adicione ao carrinho, após selecionar os produtos escolhidos, finalize o pedido e vá para a tela do Carrinho, onde terá o valor total e será possível inserir um cupom de desconto. Existem os cupons:
--VALE15(15% de desconto)
--VALE20(20% de desconto)
--VALE50(50% de desconto)
+1. Selecione a quantidade desejada de produtos e adicione-os ao carrinho.  
+2. Após escolher todos os produtos, finalize a seleção e acesse a tela do **Carrinho**.  
+3. Na tela do carrinho, você poderá:  
+   - Verificar o valor total da compra.  
+   - Inserir um cupom de desconto, caso tenha um.  
+
+### Cupons disponíveis  
+- **VALE15**: 15% de desconto.  
+- **VALE20**: 20% de desconto.  
+- **VALE50**: 50% de desconto.  
+
+Aproveite sua experiência com o **Capi Cazzo**!  
+
+
+
 
 # Preview:
 <img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/logo.png" alt="Splash Screen" width="98" height="200" /> <img src="https://github.com/DelValle0012/Capi-Cazzo/blob/main/imagens/telaLoginWhite.png.jpg" alt="Tela de Login(Claro)" width="100" height="200" /> 
