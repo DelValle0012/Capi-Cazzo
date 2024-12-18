@@ -44,13 +44,13 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você instalou a versão mais recente do **Android Studio Koala Feature Drop | 2024.1.2**.  
 - Você está utilizando uma máquina com **Windows 11** (o suporte para outros sistemas operacionais não foi testado).  
-- Você leu a [documentação oficial do Android Studio](https://developer.android.com/studio).  
+ 
 
 ## 🚀 Como executar o projeto
 
 1. Clone este repositório em sua máquina:  
    ```bash
-   git clone <URL_DO_REPOSITÓRIO>
+   git clone https://github.com/DelValle0012/Capi-Cazzo.git
 
 ## 🚀 Instalando Capi Cazzo  
 
